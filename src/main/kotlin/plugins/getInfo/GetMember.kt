@@ -1,8 +1,7 @@
-package com.LoveMaom.plugins.getInfo
+package com.whitememory.plugins.getInfo
 
-import com.LoveMaom.plugins.Common
+import com.whitememory.plugins.Common
 import org.jsoup.HttpStatusException
-import org.jsoup.Jsoup
 import org.jsoup.select.Elements
 import java.util.concurrent.CopyOnWriteArrayList
 
@@ -49,7 +48,7 @@ object GetMember {
                 //获取职业信息
                 info.add(profession.select("td")[1].text())
                 //获取干员星级
-                val star = Jsoup.connect("${Common.url}干员一览").get().select("div[data-zh=${name}]").attr("data-rarity").toInt()+1
+                val star = Common.star!!.select("div[data-zh=${name}]").attr("data-rarity").toInt()+1
                 info.add(star.toString())
                 //获取属性
                 val again = element.select("table[class=wikitable logo char-extra-attr-table]")

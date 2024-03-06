@@ -6,7 +6,7 @@ plugins {
     id("net.mamoe.mirai-console") version "2.16.0"
 }
 
-group = "com.LoveMaom"
+group = "com.whitememory"
 version = "0.0.1"
 
 repositories {
@@ -19,5 +19,5 @@ mirai {
 }
 
 dependencies {
-    implementation("org.jsoup:jsoup:1.14.1")
+    implementation("org.jsoup:jsoup:1.17.2")
 }

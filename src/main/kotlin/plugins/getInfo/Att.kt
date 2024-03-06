@@ -1,4 +1,4 @@
-package com.LoveMaom.plugins.getInfo
+package com.whitememory.plugins.getInfo
 
 import org.jsoup.select.Elements
 import java.util.concurrent.CopyOnWriteArrayList
