@@ -1,4 +1,4 @@
-package com.whitememory.plugins.getInfo
+package com.white.plugins.getInfo
 
 import org.jsoup.select.Elements
 import java.util.concurrent.CopyOnWriteArrayList

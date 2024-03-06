@@ -1,6 +1,6 @@
-package com.whitememory.plugins.getInfo
+package com.white.plugins.getInfo
 
-import com.whitememory.plugins.Common
+import com.white.plugins.Common
 import org.jsoup.HttpStatusException
 import org.jsoup.select.Elements
 import java.util.concurrent.CopyOnWriteArrayList

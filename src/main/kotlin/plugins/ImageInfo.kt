@@ -1,4 +1,4 @@
-package com.whitememory.plugins
+package com.white.plugins
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

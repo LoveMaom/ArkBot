@@ -6,7 +6,7 @@ plugins {
     id("net.mamoe.mirai-console") version "2.16.0"
 }
 
-group = "com.whitememory"
+group = "com.white"
 version = "0.0.1"
 
 repositories {

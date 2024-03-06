@@ -1,7 +1,7 @@
-package com.whitememory
+package com.white
 
-import com.whitememory.plugins.Wiki
-import com.whitememory.plugins.data.Data
+import com.white.plugins.Wiki
+import com.white.plugins.data.Data
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 import net.mamoe.mirai.event.GlobalEventChannel
@@ -10,12 +10,12 @@ import net.mamoe.mirai.utils.info
 
 object ArkBot : KotlinPlugin(
     JvmPluginDescription(
-        id = "com.whiteMemory.ArkBot",
+        id = "com.white.ArkBot",
         name = "ArkBot",
         version = "0.0.1",
     ) {
 
-        author("LoveMaom")
+        author("WhiteMemory")
     }
 ) {
     override fun onEnable() {

@@ -1,7 +1,7 @@
-package com.whitememory.plugins
+package com.white.plugins
 
-import com.whitememory.plugins.getInfo.Att
-import com.whitememory.plugins.getInfo.GetMember
+import com.white.plugins.getInfo.Att
+import com.white.plugins.getInfo.GetMember
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.content
 import org.jsoup.Jsoup
