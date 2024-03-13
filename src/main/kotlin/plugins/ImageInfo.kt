@@ -25,7 +25,6 @@ object ImageInfo {
         val bgDefault = withContext(Dispatchers.IO) {
             ImageIO.read(File("data/com.white.ArkBot/default/Bg_default.png"))
         }
-
         //立绘图片
         val imageRead = File("data/com.white.ArkBot/干员默认立绘/${name}.png")
         //若本地没有立绘则开始下载
