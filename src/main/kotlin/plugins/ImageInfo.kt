@@ -1,5 +1,6 @@
 package com.white.plugins
 
+import com.white.plugins.data.LocalData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.mamoe.mirai.event.events.GroupMessageEvent
@@ -23,10 +24,10 @@ object ImageInfo {
     suspend fun image(event: GroupMessageEvent, memberAtt: CopyOnWriteArrayList<String>?, getMember: CopyOnWriteArrayList<String>?, name: String) {
         //背景图片
         val bgDefault = withContext(Dispatchers.IO) {
-            ImageIO.read(File("data/com.white.ArkBot/default/Bg_default.png"))
+            ImageIO.read(LocalData.background)
         }
         //立绘图片
-        val imageRead = File("data/com.white.ArkBot/干员默认立绘/${name}.png")
+        val imageRead = File("${LocalData.url}portrait/${name}.png")
         //若本地没有立绘则开始下载
         if (!imageRead.isFile) {
             //获取的网站 url
@@ -36,18 +37,8 @@ object ImageInfo {
             //发起 Http 链接，从获取到的图片链接提取图片
             val doc = Jsoup.connect(getUrl[0].attr("content")).ignoreContentType(true).execute().bodyAsBytes()
             //保存图片的路径和格式
-            val outputFile = File("data/com.white.ArkBot/干员默认立绘/${name}.png")
-            try {
-                //写入目标路径
-                withContext(Dispatchers.IO) {
-                    FileOutputStream(outputFile).use { fos ->
-                        fos.write(doc)
-                    }
-                }
-                println("该干员立绘不存在 成功下载到本地：${outputFile.absolutePath}")
-            } catch (e: IOException) {
-                println("无法下载图片：$e")
-            }
+            val outputFile = File("${LocalData.url}portrait/${name}.png")
+            Common.downLoad(outputFile,doc)
         }
         //设置图片大小并创建
         val height = 1080

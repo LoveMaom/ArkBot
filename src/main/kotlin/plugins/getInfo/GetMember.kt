@@ -48,7 +48,7 @@ object GetMember {
                 //获取职业信息
                 info.add(profession.select("td")[1].text())
                 //获取干员星级
-                val star = Common.star!!.select("div[data-zh=${name}]").attr("data-rarity").toInt()+1
+                val star = Common.star.select("div[data-zh=${name}]").attr("data-rarity").toInt()+1
                 info.add(star.toString())
                 //获取属性
                 val again = element.select("table[class=wikitable logo char-extra-attr-table]")
