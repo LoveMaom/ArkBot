@@ -1,5 +1,6 @@
 package com.white.plugins
 
+import com.white.plugins.data.LocalData
 import com.white.plugins.getInfo.Att
 import com.white.plugins.getInfo.GetMember
 import net.mamoe.mirai.event.events.GroupMessageEvent
@@ -11,20 +12,23 @@ import java.io.IOException
 object Wiki {
     suspend fun command(event: GroupMessageEvent) {
         if ("查询干员" == event.message.content.take(4)) {
+            LocalData.jobBranch()
             val operators = event.message.content.split("查询干员")[1]
-            try {
-                //从干员列表中查询是否有该干员
-                if (Common.star!!.select("div[data-zh=${operators}]").text() != "") {
-                    //获取网页内容
-                    val doc = Jsoup.connect("${Common.url}${operators}").timeout(3000).get()
-                    //将html内容放进集合中
-                    val list: Elements = doc.select("div[class=mw-parser-output]")
-                    //调用图片制作
-                    ImageInfo.image(event, Att.main(list), GetMember.main(operators, list), operators)
-                } else { event.group.sendMessage("没有这个干员") }
-            } catch (_: IOException) {
-            } catch (e: Exception) {
-                e.printStackTrace()
+            if (operators.length > 1) {
+                try {
+                    //从干员列表中查询是否有该干员
+                    if (Common.star.select("div[data-zh=${operators}]").text() != "") {
+                        //获取网页内容
+                        val doc = Jsoup.connect("${Common.url}${operators}").timeout(3000).get()
+                        //将html内容放进集合中
+                        val list: Elements = doc.select("div[class=mw-parser-output]")
+                        //调用图片制作
+                        ImageInfo.image(event, Att.main(list), GetMember.main(operators, list), operators)
+                    } else { event.group.sendMessage("没有这个干员") }
+                } catch (_: IOException) {
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
         }
     }
